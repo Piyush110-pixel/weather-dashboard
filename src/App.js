@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import WeatherCard from './components/WeatherCard';
+import WeatherCard from './components/WeatherCard'; // Make sure the file name matches exactly
 
 const App = () => {
   const [city, setCity] = useState('');
@@ -7,7 +7,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // ✅ Using your provided API key (hardcoded)
+  // 🔐 API key (hardcoded as requested — safe only for testing)
   const API_KEY = 'c741be5aeb459206cd02559a1f1678f6';
 
   const fetchWeather = async () => {
