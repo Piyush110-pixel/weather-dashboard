@@ -7,7 +7,8 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_KEY = 'c741be5aeb459206cd02559a1f1678f6'; // Replace this with your actual API key
+  // ✅ Using your provided API key (hardcoded)
+  const API_KEY = 'c741be5aeb459206cd02559a1f1678f6';
 
   const fetchWeather = async () => {
     if (!city) return;
@@ -18,9 +19,7 @@ const App = () => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
       );
-      if (!res.ok) {
-        throw new Error('City not found');
-      }
+      if (!res.ok) throw new Error('City not found or API error');
       const data = await res.json();
       setWeather(data);
     } catch (err) {
@@ -32,9 +31,7 @@ const App = () => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      fetchWeather();
-    }
+    if (e.key === 'Enter') fetchWeather();
   };
 
   return (
